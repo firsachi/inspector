@@ -4,20 +4,22 @@ import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import base_inspector.dao.UserDao;
-import base_inspector.entity.User;
 import ua.kiev.inspector.model.UserModel;
+import ua.kiev.inspector.repository.dao.UserDao;
+import ua.kiev.inspector.repository.entity.User;
 import ua.kiev.inspector.transformers.BaseTransformer;
 
 @Service
+@Transactional
 public class UserService implements BaseService<UserModel>{
 
 	@Autowired
 	private BaseTransformer<User, UserModel> userTransformer;
 	
 	@Autowired
-	private UserDao userDao;
+	private UserDao userDaoImpl;
 
 	@Override
 	public void add(UserModel model) {

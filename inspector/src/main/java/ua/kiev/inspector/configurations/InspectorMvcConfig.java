@@ -16,7 +16,7 @@ import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
 
 
 @Configuration
-@ComponentScan
+@ComponentScan({"ua.kiev.inspector.controllers"})
 @EnableWebMvc
 public class InspectorMvcConfig extends WebMvcConfigurerAdapter{
 	

@@ -2,8 +2,8 @@ package ua.kiev.inspector.transformers;
 
 import org.springframework.stereotype.Component;
 
-import base_inspector.entity.User;
 import ua.kiev.inspector.model.UserModel;
+import ua.kiev.inspector.repository.entity.User;
 
 @Component
 public class UserTransformer implements BaseTransformer<User, UserModel>{
