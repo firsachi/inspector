@@ -15,7 +15,7 @@ import com.mchange.v2.c3p0.ComboPooledDataSource;
 
 @Configuration
 @EnableTransactionManagement
-public class ConfigurationInspector {
+public class HibernateConfiguration {
 
 	@Bean
 	public ComboPooledDataSource dataSource(){
