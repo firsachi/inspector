@@ -10,6 +10,11 @@
 	
 	<body>
 		<%@ include file="../jspf/home-menu.jspf" %>
+		<table class="table">
+			<tr>
+				<td></td>
+			<tr>
+		</table>
 		<%@ include file="../jspf/map-base-file-js.jspf" %>
 	</body>
 </html>

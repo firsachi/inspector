@@ -13,18 +13,16 @@
 	</head>
 	<body>
 		<div class="container">
-      		<form class="form-signin" role="form">
+      		<form action="/inspector/login" method="post" class="form-signin" role="form">
         		<h2 class="form-signin-heading"><spring:message code="login.title"/></h2>
         		<label><spring:message code="login.username"/></label>
-        		<input type="email" class="form-control" placeholder="Email address" required="" autofocus="">
+        		<input type="email" name="username" class="form-control" placeholder="Email address" required="" autofocus="">
         		<label><spring:message code="login.password"/></label>
-        		<input type="password" class="form-control" placeholder="Password" required="">
+        		<input type="password" name="password" class="form-control" placeholder="Password" required="">
         		<label class="checkbox">
           			<input type="checkbox" value="remember-me"> Remember me
         		</label>
-        		<button class="btn btn-lg btn-primary btn-block" type="submit">
-        			<spring:message code="login.dingin"/>
-        		</button>
+        		<input id="button" type="submit" class="btn btn-lg btn-primary btn-block" value="<spring:message code="login.dingin"/>">
       		</form>
     	</div>
 		<%@ include file="../jspf/map-base-file-js.jspf" %>

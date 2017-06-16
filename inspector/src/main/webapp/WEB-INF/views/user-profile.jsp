@@ -39,13 +39,13 @@
   				<div class="form-group">
     				<form:label path="password" class="col-sm-2 control-label"><spring:message code="login.password"/></form:label>
     				<div class="col-sm-10">
-    					<form:input path="password" class="form-control"/>
+    					<form:password path="password" class="form-control"/>
     				</div>
   				</div>
   				<div class="form-group">
     				<form:label path="newPassword" class="col-sm-2 control-label"><spring:message code="user.newPassword"/></form:label>
     				<div class="col-sm-10">
-    					<form:input path="newPassword" class="form-control"/>
+    					<form:password path="newPassword" class="form-control"/>
     				</div>
   				</div>
   				<div class="form-group">
