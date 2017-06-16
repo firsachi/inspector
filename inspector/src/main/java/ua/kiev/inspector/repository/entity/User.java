@@ -13,9 +13,7 @@ import java.util.List;
  */
 @Entity
 @Table(name="inspector_users")
-@NamedQuery(name="InspectorUser.findAll", query="SELECT i FROM InspectorUser i")
 public class User implements Serializable {
-	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
