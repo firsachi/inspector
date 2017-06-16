@@ -39,6 +39,7 @@ public class SecurituSpringConfig extends WebSecurityConfigurerAdapter {
             	.permitAll()
             	.and()
             .logout()
+            	.logoutSuccessUrl("/")
             	.permitAll()
             	.and()
             .csrf()
