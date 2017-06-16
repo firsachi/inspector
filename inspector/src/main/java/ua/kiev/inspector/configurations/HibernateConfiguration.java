@@ -38,7 +38,7 @@ public class HibernateConfiguration {
 	public LocalSessionFactoryBean sessionFactory(){
 		LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
 		sessionFactory.setDataSource(dataSource());
-		sessionFactory.setPackagesToScan(new String[]{"ua.kiev.inspector.databse.entity"});
+		sessionFactory.setPackagesToScan(new String[]{"ua.kiev.inspector.repository.entity"});
 		Properties properties = new Properties();
         properties.put("hibernate.dialect", "org.hibernate.dialect.MySQLDialect");
         properties.put("hibernate.hbm2ddl.auto", "update");
