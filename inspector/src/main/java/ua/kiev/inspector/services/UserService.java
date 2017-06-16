@@ -47,17 +47,25 @@ public class UserService implements BaseService<UserModel>,UserDetailsService{
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+	public UserModel faid(String name) {
+		User user = userDaoImpl.findByUserName(name);
+		return userTransformer.entityToModel(user);
+	}
 
 	@Override
 	public Set<UserModel> all() {
-		// TODO Auto-generated method stub
+		
 		return null;
 	}
 
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		// TODO Auto-generated method stub
-		return null;
+		User user = userDaoImpl.findByUserName(username);
+		if (user == null) {
+            throw new UsernameNotFoundException(username);
+        }
+		return userTransformer.entityToModel(user);
 	}
 	
 	
