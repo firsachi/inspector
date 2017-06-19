@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
@@ -13,17 +15,24 @@
 	</head>
 	<body>
 		<div class="container">
-      		<form action="/inspector/login" method="post" class="form-signin" role="form">
+      		<form:form modelAttribute="user" action="/inspector/login" method="post" cssClass="form-signin" role="form">
         		<h2 class="form-signin-heading"><spring:message code="login.title"/></h2>
-        		<label><spring:message code="login.username"/></label>
-        		<input type="email" name="username" class="form-control" placeholder="Email address" required="" autofocus="">
-        		<label><spring:message code="login.password"/></label>
-        		<input type="password" name="password" class="form-control" placeholder="Password" required="">
-        		<label class="checkbox">
-          			<input type="checkbox" value="remember-me"> Remember me
-        		</label>
-        		<input id="button" type="submit" class="btn btn-lg btn-primary btn-block" value="<spring:message code="login.dingin"/>">
-      		</form>
+        		<form:errors path="username" ></form:errors>
+        		<c:set var="login">
+        			<spring:message code="login.username"/>
+        		</c:set>
+        		<form:label path="username">${ login }</form:label>
+        		<form:input path="username" cssClass="form-control" placeholder="${ login }"/>
+        		
+        		<c:set var="pass">
+        			<spring:message code="login.password"/>
+        		</c:set>
+        		<form:label path="password">${ pass }</form:label>
+        		<form:password path="password" cssClass="form-control" placeholder="${ pass }"/>
+        		<form:button class="btn btn-lg btn-primary btn-block">
+        			<spring:message code="login.dingin"/>
+        		</form:button>
+      		</form:form>
     	</div>
 		<%@ include file="../jspf/map-base-file-js.jspf" %>
 	</body>
