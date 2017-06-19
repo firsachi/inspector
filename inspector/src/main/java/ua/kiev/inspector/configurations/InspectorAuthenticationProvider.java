@@ -36,7 +36,6 @@ public class InspectorAuthenticationProvider implements AuthenticationProvider {
 		} catch (NoSuchAlgorithmException e) {
 			e.printStackTrace();
 		}
-        System.out.println(password);
         UserDetails user = userService.loadUserByUsername(username);
         if (user == null) {
             throw new BadCredentialsException("Username not found.");

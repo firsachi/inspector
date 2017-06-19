@@ -17,7 +17,10 @@
 			<div class="page-header">
   				<h1><spring:message code="label.userProfile"/></h1>
 			</div>
-			<form:form class="form-horizontal" modelAttribute="user" method="POST" role="form">
+			<form:form action="/inspector/editUserProfile" class="form-horizontal" modelAttribute="user" method="post" role="form">
+				<div class="form-group">
+					<form:errors path="firstName" cssClass=""/>
+				</div>
 				<div class="form-group">
     				<form:label path="firstName" class="col-sm-2 control-label"><spring:message code="user.firstName"/></form:label>
     				<div class="col-sm-10">

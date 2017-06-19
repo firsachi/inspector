@@ -2,16 +2,30 @@ package ua.kiev.inspector.model;
 
 import java.util.Collection;
 
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 public class UserModel implements UserDetails{
 	
+	@NotNull
 	private String firstName;
+	
+	@NotNull
 	private String lastName;
+	
+	@NotNull
 	private String username;
+	
+	@NotNull
+	@Min(8)
 	private String password;
+	
+	@NotNull
 	private String newPassword;
+	
 	private boolean enabled;
 	
 	public UserModel(){
