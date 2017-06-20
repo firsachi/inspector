@@ -10,11 +10,6 @@
     	<%@include file="../jspf/map-bootstrap-css.jspf" %>
     	<title><spring:message code="label.nameModule"/></title>
     	<style type="text/css">	
-    		form {
-				border: 1px solid #999;
-				padding: 20px;
-				border-radius: 5px;
-			}
 			.jumbotron h1{
 				
 			}
@@ -57,7 +52,7 @@
     
     <div class="container">
     	
-    	<div class="jumbotron">
+    	<div class="container">
     	<div class="row">
     		<div class="col-md-8">
     			<h1 style="margin-top: 0px;" ><spring:message code="label.nameModule"/></h1>
@@ -71,7 +66,16 @@
     			<p>Повідомлення на цей модуль носять інформативний характер та не можуть розглядатись в порядку, встановленому Законом України «Про звернення громадян».</p>
     		</div>
     			<div class="col-md-4" >
-    				<%@include file="../jspf/registratin-form.jspf" %>
+    				<div class="panel panel-default">
+    				
+    					<div class="panel-heading">
+							<spring:message code="user.join"/>
+						</div>
+						
+    					<div class="panel-body">
+    						<%@include file="../jspf/registratin-form.jspf" %>
+    					</div>
+    				</div>
     			</div>
     		</div> <!-- end row -->
 		</div>
