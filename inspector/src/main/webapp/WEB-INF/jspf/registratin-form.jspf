@@ -1,26 +1,47 @@
 <%@ page pageEncoding="UTF-8"%>
-<%@ taglib  uri="http://www.springframework.org/tags" prefix="spring"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
-			<form:form action="/inspector/editUserProfile" modelAttribute="user" method="POST" role="form">
+			<form:form action="/inspector/addUser" modelAttribute="user" method="POST" role="form">
 				<div class="form-group">
-    				<form:label path="firstName"><spring:message code="user.firstName"/></form:label>
-    				<form:input path="firstName" class="form-control"/>
+					<c:set var="name">
+        				<spring:message code="user.firstName"/>
+        			</c:set>
+    				<form:label path="firstName">${ name }</form:label>
+    				<form:input path="firstName" class="form-control" placeholder="${ name }" />
+    				<form:errors path="firstName" cssClass="text-danger" />
   				</div>
   				<div class="form-group">
-    				<form:label path="lastName"><spring:message code="user.lastName"/></form:label>
-    				<form:input path="lastName" class="form-control"/>
+  					<c:set var="surname">
+        				<spring:message code="user.lastName"/>
+        			</c:set>
+    				<form:label path="lastName">${ surname }</form:label>
+    				<form:input path="lastName" class="form-control" placeholder="${ surname }"/>
+    				<form:errors path="lastName" cssClass="text-danger"/>
   				</div>
 				<div class="form-group">
-    				<form:label path="username" ><spring:message code="login.username"/></form:label>
-    				<form:input path="username" class="form-control"/>
+					<c:set var="login">
+        				<spring:message code="login.username"/>
+        			</c:set>
+    				<form:label path="username" >${ login }</form:label>
+    				<form:input path="username" class="form-control" placeholder="${ login }" />
+    				<form:errors path="username" cssClass="text-danger" />
   				</div>
   				<div class="form-group">
-    				<form:label path="password"><spring:message code="login.password"/></form:label>
-    				<form:input path="password" class="form-control"/>
+  					<c:set var="pass">
+        				<spring:message code="login.password"/>
+        			</c:set>
+    				<form:label path="password">${ pass }</form:label>
+    				<form:input path="password" class="form-control" placeholder="${ pass }"/>
+    				<form:errors path="password" cssClass="text-danger"/>
   				</div>
   				<div class="form-group">
-    				<form:label path="newPassword"><spring:message code="user.repeatPassword"/></form:label>
-    				<form:input path="newPassword" class="form-control"/>
+  					<c:set var="newPass">
+        				<spring:message code="user.repeatPassword"/>
+        			</c:set>
+    				<form:label path="newPassword">${ newPass }</form:label>
+    				<form:input path="newPassword" class="form-control" placeholder="${ newPass }" />
+    				<form:errors path="newPassword" cssClass="text-danger"/>
   				</div>
   				<div class="form-group">
     				<button type="submit" class="btn btn-primary"><spring:message code="user.join"/></button>
