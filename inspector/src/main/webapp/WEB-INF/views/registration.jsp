@@ -11,7 +11,7 @@
 	<body>
 		<div class="container">
 			<div class="page-header">
-  				<h1><spring:message code="user.registration"/></h1>
+  				<h1><spring:message code="user.registration"/> "<spring:message code="label.nameModule"/>"</h1>
 			</div>
 			<%@include file="../jspf/registratin-form.jspf" %>
 		</div> <!-- clse container -->
