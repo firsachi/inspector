@@ -5,25 +5,28 @@ import java.util.Collection;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
+import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+
 public class UserModel implements UserDetails{
 	
-	@NotNull
+	@NotEmpty(message = "{error.null}")
 	private String firstName;
 	
-	@NotNull
+	@NotEmpty(message = "{error.null}")
 	private String lastName;
 	
-	@NotNull
+	@NotEmpty(message = "{error.null}")
 	private String username;
 	
-	@NotNull
-	@Min(8)
+	@NotEmpty(message = "{error.null}")
+	@Min(value = 8, message = "{error.passwordMinSize}" )
 	private String password;
 	
-	@NotNull
+	@NotEmpty(message = "{error.null}")
+	@Min(value = 8, message = "{error.passwordMinSize}")
 	private String newPassword;
 	
 	private boolean enabled;
