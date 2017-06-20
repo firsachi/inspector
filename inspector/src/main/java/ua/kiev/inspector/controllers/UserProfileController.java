@@ -35,13 +35,20 @@ public class UserProfileController {
 	
 	@RequestMapping(value = "/editUserProfile", method = RequestMethod.POST)
 	public String editUserProfile(@Valid @ModelAttribute("user") UserModel userModel, BindingResult bindingResult){
-		System.out.println(bindingResult.hasErrors());
 		if (bindingResult.hasErrors()) {
-			System.out.println("12");
             return "user-profile";
         }else{
         	return "asd";
         }	
+	}
+	
+	@RequestMapping(value = "/addUser", method = RequestMethod.POST)
+	public String addUser(@Valid @ModelAttribute("user") UserModel userModel, BindingResult bindingResult){
+		if (bindingResult.hasErrors()) {
+            return "registration";
+        }else{
+        	return "asd";
+        }
 	}
 	
 	@RequestMapping(value = "/registration", method = RequestMethod.GET)
