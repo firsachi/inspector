@@ -33,7 +33,7 @@ public class SecurituSpringConfig extends WebSecurityConfigurerAdapter {
             	.anyRequest().authenticated()
                 .and()
             .formLogin()
-            	.loginPage("/login")
+            	.loginPage("/login").failureUrl("/login?error")
             	.usernameParameter("username")
             	.passwordParameter("password")
             	.permitAll()
