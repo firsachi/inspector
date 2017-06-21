@@ -15,24 +15,27 @@
 	</head>
 	<body>
 		<div class="container">
-      		<form:form modelAttribute="user" action="/inspector/login" method="post" cssClass="form-signin" role="form">
+      		<form:form modelAttribute="user" action="/inspector/chech_login_page" method="post" cssClass="form-signin" role="form">
         		<h2 class="form-signin-heading"><spring:message code="login.title"/></h2>
-        		<form:errors path="username" ></form:errors>
         		<c:set var="login">
         			<spring:message code="login.username"/>
         		</c:set>
         		<form:label path="username">${ login }</form:label>
         		<form:input path="username" cssClass="form-control" placeholder="${ login }"/>
-        		
+        		<form:errors path="username" cssClass="text-danger"/>
         		<c:set var="pass">
         			<spring:message code="login.password"/>
         		</c:set>
         		<form:label path="password">${ pass }</form:label>
         		<form:password path="password" cssClass="form-control" placeholder="${ pass }"/>
+        		<form:errors path="password" cssClass="text-danger"/>
+        		
         		<form:button class="btn btn-lg btn-primary btn-block">
         			<spring:message code="login.dingin"/>
         		</form:button>
+        		<a href="." class="btn btn-default btn-lg btn-block"><spring:message code="login.back"/></a>
       		</form:form>
+      		
     	</div>
 		<%@ include file="../jspf/map-base-file-js.jspf" %>
 	</body>

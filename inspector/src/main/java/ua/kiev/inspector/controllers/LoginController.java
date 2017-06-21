@@ -22,9 +22,8 @@ import ua.kiev.inspector.model.UserModel;
 @Controller
 public class LoginController {
 	
-	@RequestMapping(value = "/login", method=RequestMethod.GET)
-	public ModelAndView loginPage(@Valid @ModelAttribute("user") UserModel user, BindingResult result,
-            SessionStatus status, Locale locale){
+	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	public ModelAndView loginPage(Locale locale){
 		ModelAndView model = new ModelAndView();
 		model.setViewName("login");
 		model.addObject("user", new UserModel());
@@ -32,7 +31,16 @@ public class LoginController {
 		return model;
 	}
 	
-	@RequestMapping(value="/logout", method=RequestMethod.GET)
+	@RequestMapping(value = "/chech_login_page", method = RequestMethod.POST)
+	public String checkLoginPage(@Valid @ModelAttribute("user") UserModel user, BindingResult bindingResult){
+		if (bindingResult.hasErrors()) {
+            return "login";
+        }else{
+        	return "home";
+        }
+	}
+	
+	@RequestMapping(value = "/logout", method = RequestMethod.GET)
     public String logoutPage(HttpServletRequest request, HttpServletResponse response){
     	Authentication auth = SecurityContextHolder.getContext().getAuthentication();
     	if (auth != null){    
