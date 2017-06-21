@@ -14,7 +14,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.support.SessionStatus;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import ua.kiev.inspector.model.UserModel;
@@ -23,8 +23,11 @@ import ua.kiev.inspector.model.UserModel;
 public class LoginController {
 	
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
-	public ModelAndView loginPage(Locale locale){
+	public ModelAndView loginPage(@RequestParam(value = "error", required = false) String error, Locale locale){
 		ModelAndView model = new ModelAndView();
+		if(error != null){
+			model.addObject("error", "");
+		}
 		model.setViewName("login");
 		model.addObject("user", new UserModel());
 		model.addObject("locale", locale);
