@@ -15,8 +15,11 @@
 	</head>
 	<body>
 		<div class="container">
-      		<form:form modelAttribute="user" action="/inspector/chech_login_page" method="post" cssClass="form-signin" role="form">
+      		<form:form modelAttribute="user" action="/inspector/login" method="post" cssClass="form-signin" role="form">
         		<h2 class="form-signin-heading"><spring:message code="login.title"/></h2>
+        		<c:if test = "${ error != null}">
+         			<div style="margin-bottom: 6px" class="alert alert-danger"><spring:message code="label.error"/></div>
+      			</c:if>
         		<c:set var="login">
         			<spring:message code="login.username"/>
         		</c:set>
