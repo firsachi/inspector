@@ -40,7 +40,7 @@ public class HibernateConfiguration {
 		sessionFactory.setDataSource(dataSource());
 		sessionFactory.setPackagesToScan(new String[]{"ua.kiev.inspector.repository.entity"});
 		Properties properties = new Properties();
-        properties.put("hibernate.dialect", "org.hibernate.dialect.MySQLDialect");
+        properties.put("hibernate.dialect", "org.hibernate.dialect.MySQL5Dialect");
         properties.put("hibernate.hbm2ddl.auto", "update");
         properties.put("hibernate.transaction.factory_class", "org.hibernate.transaction.JDBCTransactionFactory");
         properties.put("hibernate.enable_lazy_load_no_trans", true);
