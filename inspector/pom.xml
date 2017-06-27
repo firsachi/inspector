@@ -37,6 +37,12 @@
 		<junit.version>4.7</junit.version>
 	</properties>
 	<dependencies>
+		<!-- json -->
+		<dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>20090211</version>
+        </dependency>
 		<!-- Spring -->
 		<dependency>
 			<groupId>org.springframework</groupId>
