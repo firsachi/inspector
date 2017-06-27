@@ -12,6 +12,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 public class UserModel implements UserDetails{
 	
+	private int userId;
+	
 	@NotEmpty(message = "{error.null}")
 	private String firstName;
 	
@@ -33,7 +35,15 @@ public class UserModel implements UserDetails{
 	
 	public UserModel(){
 	}
-	
+		
+	public int getUserId() {
+		return userId;
+	}
+
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
+
 	public String getFirstName() {
 		return firstName;
 	}

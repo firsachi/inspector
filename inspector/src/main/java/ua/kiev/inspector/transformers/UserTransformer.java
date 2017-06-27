@@ -11,6 +11,7 @@ public class UserTransformer implements BaseTransformer<User, UserModel>{
 	@Override
 	public UserModel entityToModel(User entity) {
 		UserModel model = new UserModel();
+		model.setUserId(entity.getUsersId());
 		model.setFirstName(entity.getName());
 		model.setLastName(entity.getLastname());
 		model.setUsername(entity.getMail());
