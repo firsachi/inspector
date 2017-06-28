@@ -6,6 +6,7 @@ import javax.persistence.TypedQuery;
 
 import org.hibernate.Session;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import ua.kiev.inspector.repository.dao.BaseDao;
 import ua.kiev.inspector.repository.dao.QueryHQL;
@@ -15,6 +16,7 @@ import ua.kiev.inspector.repository.entity.RinspDoc;
 public class RinspDocDaoImpl extends BaseDao<RinspDoc>{
 
 	@Override
+	@Transactional
 	public List<RinspDoc> getList(QueryHQL query) {
 		Session session = sessionFactory.getCurrentSession();
 		TypedQuery<RinspDoc> typedQuery = session.createQuery(query.getQuery(), RinspDoc.class);

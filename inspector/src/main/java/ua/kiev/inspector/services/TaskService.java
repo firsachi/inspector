@@ -14,6 +14,7 @@ import ua.kiev.inspector.repository.dao.QueryHQL;
 import ua.kiev.inspector.repository.entity.RinspDoc;
 import ua.kiev.inspector.transformers.BaseTransformer;
 
+@Transactional
 @Service
 public class TaskService implements BaseService<TaskModel>{
 	
@@ -48,6 +49,7 @@ public class TaskService implements BaseService<TaskModel>{
 	}
 
 	@Override
+	@Transactional
 	public TaskModel byId(int id) {
 		final int taskId = id;
 		RinspDoc rinspDoc = rinspDocDaoImpl.byEntity(new QueryHQL() {
@@ -66,8 +68,8 @@ public class TaskService implements BaseService<TaskModel>{
 		return null;
 	}
 
-	@Transactional
 	@Override
+	@Transactional
 	public List<TaskModel> all() {
 		List<RinspDoc> listTask = rinspDocDaoImpl.getList(new QueryHQL() {
 			
