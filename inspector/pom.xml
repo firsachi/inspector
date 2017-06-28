@@ -10,13 +10,13 @@
 	<properties>
 		<java-version>1.6</java-version>
 		<!-- Spring version -->
-		<org.springframework-version>4.3.7.RELEASE</org.springframework-version>
+		<org.springframework-version>4.3.2.RELEASE</org.springframework-version>
 		<springframework.security-version>4.2.3.RELEASE</springframework.security-version>
 		
 		<hibernate-validator.version>5.4.1.Final</hibernate-validator.version>
 		
 		<!-- Hibernate / JPA -->
-		<hibernate.version>5.2.9.Final</hibernate.version>
+		<hibernate.version>5.2.5.Final</hibernate.version>
 		<mysql.version>5.1.6</mysql.version>
 		<c3p0.version>0.9.1.2</c3p0.version>
 		
