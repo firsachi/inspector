@@ -17,7 +17,7 @@ public class TypeobjectDaoImpl extends BaseDao<InspectorTypeobject>{
 	}
 
 	@Override
-	public InspectorTypeobject byEntity(String login, String password, QueryHQL query) {
+	public InspectorTypeobject byEntity(QueryHQL query) {
 		// TODO Auto-generated method stub
 		return null;
 	}

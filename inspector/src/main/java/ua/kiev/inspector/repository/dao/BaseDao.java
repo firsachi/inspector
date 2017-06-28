@@ -20,7 +20,7 @@ public abstract class BaseDao<T> {
 	
 	public abstract T byEntity(int id);
 	
-	public abstract T byEntity(String login, String password, QueryHQL query);
+	public abstract T byEntity(QueryHQL query);
 	
 	public abstract List<T> getList(QueryHQL query);
 	
