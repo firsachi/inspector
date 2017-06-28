@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import ua.kiev.inspector.model.TaskModel;
 import ua.kiev.inspector.model.UserModel;
 import ua.kiev.inspector.services.TaskService;
 
@@ -28,52 +29,45 @@ public class Design {
 		JSONArray array = new JSONArray();	
 		UserModel user = (UserModel)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		taskService.setUserEmail(user.getUserId());
-		System.out.println(taskService.all().size());
-		/*
-		User inspectorUser = userDaoIlmp.byEntity("temugin4303@mail.ua", "b35c7c6c1c5644fce580a7c0f1ba4079", new QueryHQL() {
-			//WHERE i.mail = :login AND i.password = :password
-			public String getQuery() {
-				return "SELECT I FROM InspectorUser I WHERE I.mail = :login";
-			}
-		});
-		for (RinspDoc rinspDoc: inspectorUser.getListRinspDocs()){
+		
+		for (TaskModel taskModel : taskService.all()){
 			JSONObject resultJson = new JSONObject();
 			try {
-				resultJson.put("idNumber", rinspDoc.getId());
-				resultJson.put("street", rinspDoc.getStreet());
-				resultJson.put("summary", rinspDoc.getInspectorTypeobject().getName());
-				resultJson.put("created", rinspDoc.getDateDoc());
+				resultJson.put("idNumber", taskModel.getIdNumber());
+				resultJson.put("street", taskModel.getStreet());
+				resultJson.put("summary", taskModel.getSummary());
+				resultJson.put("created", taskModel.getCreated());
 				array.put(resultJson);
 			} catch (JSONException e) {
 				e.printStackTrace();
 			}
-		}*/
+		}
 		return array.toString();
 	}
 	
 	@GetMapping(value="objects/{id}")
 	public String getObject(@PathVariable int id){
-		//RinspDoc rinspDoc = rinspDocDaoImpl.byEntity(id);
+		UserModel user = (UserModel)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		taskService.setUserEmail(user.getUserId());
+		TaskModel taskModel = taskService.byId(id);
 		JSONObject resultJson = new JSONObject();
-		/*
 		try {
-			String url = "http://94.45.50.250:8080/inspector/resources/upload/";
-			resultJson.put("idNumber", rinspDoc.getId());
+			resultJson.put("idNumber", taskModel.getIdNumber());
 			resultJson.put("district", "");
-			resultJson.put("street", rinspDoc.getStreet());
-			resultJson.put("bldg", rinspDoc.getBuild());
-			resultJson.put("location", rinspDoc.getLocAdd());
-			resultJson.put("lat", rinspDoc.getY());
-			resultJson.put("lng", rinspDoc.getX());
-			resultJson.put("photoURL", url + rinspDoc.getFotop());
-			resultJson.put("summary", rinspDoc.getOpis());
-			resultJson.put("usrNotes", rinspDoc.getPrim());
-			resultJson.put("admNotes", rinspDoc.getAnswer());
-			resultJson.put("created", rinspDoc.getDateDoc());
+			resultJson.put("street", taskModel.getStreet());
+			resultJson.put("bldg", taskModel.getBuild());
+			resultJson.put("location", taskModel.getLocation());
+			resultJson.put("lat", taskModel.getLat());
+			resultJson.put("lng", taskModel.getLng());
+			resultJson.put("photoURL", taskModel.getPhotoURL());
+			resultJson.put("summary", taskModel.getSummary());
+			resultJson.put("usrNotes", taskModel.getUsrNotes());
+			resultJson.put("admNotes", taskModel.getAdmNotes());
+			resultJson.put("created", taskModel.getCreated());
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}*/
+		}
 		return resultJson.toString();
 	}
 }

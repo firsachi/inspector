@@ -4,7 +4,7 @@ import java.io.Serializable;
 import javax.persistence.*;
 
 import java.sql.Timestamp;
-import java.util.List;
+import java.util.Set;
 
 
 /**
@@ -39,7 +39,7 @@ public class User implements Serializable {
 	private String password;
 	
 	@OneToMany(mappedBy="inspectorUser")
-	private List<RinspDoc> listRinspDocs;
+	private Set<RinspDoc> listRinspDocs;
 
 	public User() {
 	}
@@ -100,11 +100,11 @@ public class User implements Serializable {
 		this.password = password;
 	}
 	
-	public List<RinspDoc> getListRinspDocs() {
+	public Set<RinspDoc> getListRinspDocs() {
 		return listRinspDocs;
 	}
 
-	public void setListRinspDocs(List<RinspDoc> listRinspDocs) {
+	public void setListRinspDocs(Set<RinspDoc> listRinspDocs) {
 		this.listRinspDocs = listRinspDocs;
 	}
 
