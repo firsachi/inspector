@@ -1,7 +1,9 @@
 package ua.kiev.inspector.services;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
+
+import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -9,7 +11,6 @@ import org.springframework.stereotype.Service;
 import ua.kiev.inspector.model.TaskModel;
 import ua.kiev.inspector.repository.dao.BaseDao;
 import ua.kiev.inspector.repository.dao.QueryHQL;
-import ua.kiev.inspector.repository.dao.QueryObject;
 import ua.kiev.inspector.repository.entity.RinspDoc;
 import ua.kiev.inspector.transformers.BaseTransformer;
 
@@ -47,9 +48,16 @@ public class TaskService implements BaseService<TaskModel>{
 	}
 
 	@Override
-	public TaskModel faid() {
-		// TODO Auto-generated method stub
-		return null;
+	public TaskModel byId(int id) {
+		final int taskId = id;
+		RinspDoc rinspDoc = rinspDocDaoImpl.byEntity(new QueryHQL() {
+			
+			@Override
+			public String getQuery() {
+				return "SELECT r FROM RinspDoc r WHERE r.inspectorUser = " + userId + "AND r.id = " + taskId;
+			}
+		});
+		return taskTransformer.entityToModel(rinspDoc);
 	}
 
 	@Override
@@ -58,20 +66,21 @@ public class TaskService implements BaseService<TaskModel>{
 		return null;
 	}
 
+	@Transactional
 	@Override
-	public Set<TaskModel> all() {
+	public List<TaskModel> all() {
 		List<RinspDoc> listTask = rinspDocDaoImpl.getList(new QueryHQL() {
 			
 			@Override
-			public QueryObject getQuery() {
-				QueryObject queryObject = new QueryObject();
-				queryObject.setQueryHQL("SELECT r FROM RinspDoc r ");
-				queryObject.addParametr("userId", userId);
-				return queryObject;
+			public String getQuery() {
+				return "SELECT r FROM RinspDoc r WHERE r.inspectorUser = " + userId;
 			}
 		});
-		System.out.println(listTask.size());
-		return null;
+		List<TaskModel> resultLIst = new ArrayList<TaskModel>();
+		for(RinspDoc rinspDoc: listTask){
+			resultLIst.add(taskTransformer.entityToModel(rinspDoc));
+		}
+		return resultLIst;
 	}
 
 }

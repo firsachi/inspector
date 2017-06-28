@@ -1,6 +1,6 @@
 package ua.kiev.inspector.services;
 
-import java.util.Set;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -43,7 +43,7 @@ public class UserService implements BaseService<UserModel>,UserDetailsService{
 	}
 	
 	@Override
-	public UserModel faid() {
+	public UserModel byId(int id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -54,7 +54,7 @@ public class UserService implements BaseService<UserModel>,UserDetailsService{
 	}
 
 	@Override
-	public Set<UserModel> all() {
+	public List<UserModel> all() {
 		
 		return null;
 	}
