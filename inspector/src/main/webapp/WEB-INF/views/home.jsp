@@ -35,7 +35,7 @@
 					<td>${task.created}</td>
 					<td></td>
 					<td>${task.admNotes}</td>
-					<td><a href="home/${task.idNumber}"><spring:message code="table.view"/></a></td>
+					<td><a href="home${task.idNumber}"><spring:message code="table.view"/></a></td>
 				</tr>
 			</c:forEach>
 		</table>
