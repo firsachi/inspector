@@ -6,7 +6,7 @@
 <html>
 
 	<c:set var="titlePage">
-		<spring:message code="${title}"></spring:message>
+		<spring:message code="${title}"/> ${ task.idNumber }
 	</c:set>
 	
 	<head>
@@ -19,31 +19,31 @@
 		<%@ include file="../jspf/home-menu.jspf" %>
 		<div class="container-fluid">
 			<div class="panel panel-default">
-  				<div class="panel-heading">${ titlePage }</div>
+  				<div class="panel-heading"><b>${ titlePage }</b></div>
   				<table class="table">
   					<tr>
-  						<td><spring:message code="table.inspectorName"/></td>
+  						<th><spring:message code="table.inspectorName"/></th>
+  						<td>${ user.getFullUserName() }</td>
+  					</tr>
+  					<tr>
+  						<th><spring:message code="table.area"/></th>
   						<td></td>
   					</tr>
   					<tr>
-  						<td><spring:message code="table.area"/></td>
-  						<td></td>
+  						<th><spring:message code="table.street"/></th>
+  						<td>${ task.street }</td>
   					</tr>
   					<tr>
-  						<td><spring:message code="table.street"/></td>
-  						<td></td>
+  						<th><spring:message code="table.build"/></th>
+  						<td>${ task.build }</td>
   					</tr>
   					<tr>
-  						<td><spring:message code="table.build"/></td>
-  						<td></td>
+  						<th><spring:message code="table.notes"/></th>
+  						<td>${ task.summary }</td>
   					</tr>
   					<tr>
-  						<td><spring:message code="table.notes"/></td>
-  						<td></td>
-  					</tr>
-  					<tr>
-  						<td><spring:message code="table.map"/></td>
-  						<td><spring:message code="table.photo"/></td>
+  						<th><spring:message code="table.map"/></th>
+  						<th><spring:message code="table.photo"/></th>
   					</tr>
   				</table>
 			</div>
