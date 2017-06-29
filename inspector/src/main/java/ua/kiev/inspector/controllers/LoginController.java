@@ -2,6 +2,8 @@ package ua.kiev.inspector.controllers;
 
 import java.util.Locale;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
@@ -22,8 +24,11 @@ import ua.kiev.inspector.model.UserModel;
 @Controller
 public class LoginController {
 	
+	private static final Logger logger = LoggerFactory.getLogger(IndexController.class);
+	
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public ModelAndView loginPage(@RequestParam(value = "error", required = false) String error, Locale locale){
+		logger.info("Welcome home! login form");
 		ModelAndView model = new ModelAndView();
 		if(error != null){
 			model.addObject("error", "");

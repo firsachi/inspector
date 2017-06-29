@@ -13,7 +13,8 @@
 	
 	<body>
 		<%@ include file="../jspf/home-menu.jspf" %>
-		<h1><spring:message code="table.home.name"/></h1>
+		<div class="container-fluid">
+		<h1><spring:message code="table.homeName"/></h1>
 		<table class="table">
 			<tr>
 				<th><spring:message code="table.number"/></th>
@@ -34,10 +35,11 @@
 					<td>${task.created}</td>
 					<td></td>
 					<td>${task.admNotes}</td>
-					<td><a href="#"></a></td>
+					<td><a href="home/${task.idNumber}"><spring:message code="table.view"/></a></td>
 				</tr>
 			</c:forEach>
 		</table>
+		</div>
 		<%@ include file="../jspf/map-base-file-js.jspf" %>
 	</body>
 </html>
