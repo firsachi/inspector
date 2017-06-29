@@ -6,13 +6,16 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
+@Transactional
 @Repository
 public abstract class BaseDao<T> {
 	
 	@Autowired
 	protected SessionFactory sessionFactory;
 	
+	@Transactional
 	public void insert(T entity){
 		Session session = sessionFactory.getCurrentSession();
 		session.save(entity);
