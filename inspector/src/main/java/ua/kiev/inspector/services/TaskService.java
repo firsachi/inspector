@@ -3,7 +3,7 @@ package ua.kiev.inspector.services;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.transaction.Transactional;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,8 +14,7 @@ import ua.kiev.inspector.repository.dao.QueryHQL;
 import ua.kiev.inspector.repository.entity.RinspDoc;
 import ua.kiev.inspector.transformers.BaseTransformer;
 
-@Transactional
-@Service
+@Service("taskService")
 public class TaskService implements BaseService<TaskModel>{
 	
 	private int userId;
@@ -49,7 +48,6 @@ public class TaskService implements BaseService<TaskModel>{
 	}
 
 	@Override
-	@Transactional
 	public TaskModel byId(int id) {
 		final int taskId = id;
 		RinspDoc rinspDoc = rinspDocDaoImpl.byEntity(new QueryHQL() {
@@ -69,7 +67,6 @@ public class TaskService implements BaseService<TaskModel>{
 	}
 
 	@Override
-	@Transactional
 	public List<TaskModel> all() {
 		List<RinspDoc> listTask = rinspDocDaoImpl.getList(new QueryHQL() {
 			

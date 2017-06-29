@@ -22,8 +22,10 @@ public class RinspDocDaoImpl extends BaseDao<RinspDoc>{
 		TypedQuery<RinspDoc> typedQuery = session.createQuery(query.getQuery(), RinspDoc.class);
 		return typedQuery.getResultList();
 	}
-
+	
+	
 	@Override
+	@Transactional
 	public RinspDoc byEntity(QueryHQL query) {
 		Session session = sessionFactory.getCurrentSession();
 		TypedQuery<RinspDoc> typedQuery = session.createQuery(query.getQuery(), RinspDoc.class);
@@ -31,6 +33,7 @@ public class RinspDocDaoImpl extends BaseDao<RinspDoc>{
 	}
 
 	@Override
+	@Transactional
 	public RinspDoc byEntity(int id) {
 		Session session = sessionFactory.getCurrentSession();
 		return session.get(RinspDoc.class, id);
