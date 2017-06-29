@@ -13,14 +13,13 @@ import org.springframework.web.servlet.ModelAndView;
 import ua.kiev.inspector.model.UserModel;
 import ua.kiev.inspector.services.TaskService;
 
-@RequestMapping(value = "/home", method = RequestMethod.GET)
 @Controller
 public class HomeController {
 	
 	@Autowired
 	private TaskService taskService;
 	
-	@RequestMapping
+	@RequestMapping(value = "/home", method = RequestMethod.GET)
 	public ModelAndView homePage(){
 		ModelAndView model = new ModelAndView();
 		model.setViewName("home");
@@ -31,9 +30,13 @@ public class HomeController {
 		return model;
 	}
 	
-	@GetMapping(value = "/{taskId}")
+	@GetMapping(value = "/home{taskId}" )
 	public String taskIdPage(@PathVariable("taskId") int id, Model model){
 		model.addAttribute("title", "task.title");
+		UserModel user = (UserModel)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		taskService.setUserEmail(user.getUserId());
+		model.addAttribute("user", user);
+		model.addAttribute("task", taskService.byId(id));
 		return "view-task";
 	}
 

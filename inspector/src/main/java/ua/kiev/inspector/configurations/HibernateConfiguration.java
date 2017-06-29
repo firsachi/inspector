@@ -25,9 +25,9 @@ public class HibernateConfiguration {
 			dataSource.setJdbcUrl("jdbc:mysql://localhost:3306/inspector");
 			dataSource.setUser("root");
 			dataSource.setPassword("Alex1q2w#E");
-			dataSource.setMaxPoolSize(10);
-			dataSource.setMinPoolSize(2);
-			dataSource.setMaxStatements(10);
+			dataSource.setMaxPoolSize(30);
+			dataSource.setMinPoolSize(10);
+			dataSource.setMaxStatements(50);
 		} catch (PropertyVetoException e) {
 			e.printStackTrace();
 		}
