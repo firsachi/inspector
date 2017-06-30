@@ -41,11 +41,16 @@
   						<th><spring:message code="table.notes"/></th>
   						<td>${ task.summary }</td>
   					</tr>
-  					<tr>
-  						<th><spring:message code="table.map"/></th>
-  						<th><spring:message code="table.photo"/></th>
-  					</tr>
   				</table>
+  				
+  				<div class="panel-body">
+    				<div class="col-md-6">
+  						<div class="panel-body"><spring:message code="table.map"/></div>
+					</div>
+  					<div class="col-md-6">
+  						<div class="panel-body"><spring:message code="table.photo"/></div>
+  					</div>
+  				</div>
 			</div>
 		</div>
 		<%@ include file="../jspf/map-base-file-js.jspf" %>
