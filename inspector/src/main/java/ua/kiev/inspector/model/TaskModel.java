@@ -5,8 +5,8 @@ import java.sql.Timestamp;
 public class TaskModel {
 
 	private int idNumber;
-	private String district;
 	private String street;
+	private String district;
 	private String build;
 	private String location;
 	private String lat;

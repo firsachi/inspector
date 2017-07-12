@@ -11,22 +11,22 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import ua.kiev.inspector.model.UserModel;
-import ua.kiev.inspector.services.TaskService;
+import ua.kiev.inspector.services.HomeService;
 
 @Controller
 public class HomeController {
 	
 	@Autowired
-	private TaskService taskService;
+	private HomeService homeService;
 	
 	@RequestMapping(value = "/home", method = RequestMethod.GET)
 	public ModelAndView homePage(){
 		ModelAndView model = new ModelAndView();
 		model.setViewName("home");
 		UserModel user = (UserModel)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-		taskService.setUserEmail(user.getUserId());
+		// taskService.setUserEmail(user.getUserId());
 		model.addObject("user", user);
-		model.addObject("tasks", taskService.all());
+		model.addObject("tasks", homeService.getAll(user.getUserId()));
 		return model;
 	}
 	
@@ -34,9 +34,9 @@ public class HomeController {
 	public String taskIdPage(@PathVariable("taskId") int id, Model model){
 		model.addAttribute("title", "task.title");
 		UserModel user = (UserModel)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-		taskService.setUserEmail(user.getUserId());
+		// taskService.setUserEmail(user.getUserId());
 		model.addAttribute("user", user);
-		model.addAttribute("task", taskService.byId(id));
+		// model.addAttribute("task", taskService.byId(id));
 		return "view-task";
 	}
 

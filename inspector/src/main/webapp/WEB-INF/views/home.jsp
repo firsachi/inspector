@@ -28,14 +28,14 @@
 			<tr>
 			<c:forEach var="task" items="${tasks}">
 				<tr>
-					<td>${task.idNumber}</td>
+					<td>${task.id}</td>
 					<td>${task.street}</td>
-					<td>${task.build}</td>
-					<td>${task.summary}</td>
+					<td>${task.district}</td>
+					<td>${task.usrNotes}</td>
 					<td>${task.created}</td>
 					<td></td>
 					<td>${task.admNotes}</td>
-					<td><a href="home${task.idNumber}"><spring:message code="table.view"/></a></td>
+					<td><a href="home${task.id}"><spring:message code="table.view"/></a></td>
 				</tr>
 			</c:forEach>
 		</table>
