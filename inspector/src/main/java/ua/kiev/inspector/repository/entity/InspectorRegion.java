@@ -21,6 +21,8 @@ public class InspectorRegion implements Serializable {
 
 	@Column(name="name")
 	private String name;
+	
+	
 
 	public InspectorRegion() {
 	}

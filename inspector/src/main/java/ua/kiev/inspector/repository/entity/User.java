@@ -4,8 +4,6 @@ import java.io.Serializable;
 import javax.persistence.*;
 
 import java.sql.Timestamp;
-import java.util.Set;
-
 
 /**
  * The persistent class for the inspector_users database table.
@@ -37,18 +35,15 @@ public class User implements Serializable {
 	
 	@Column(name="password")
 	private String password;
-	
-	@OneToMany(mappedBy="inspectorUser")
-	private Set<RinspDoc> listRinspDocs;
 
 	public User() {
 	}
 
-	public int getUsersId() {
+	public Integer getUsersId() {
 		return this.usersId;
 	}
 
-	public void setUsersId(int usersId) {
+	public void setUsersId(Integer usersId) {
 		this.usersId = usersId;
 	}
 
@@ -98,20 +93,6 @@ public class User implements Serializable {
 
 	public void setPassword(String password) {
 		this.password = password;
-	}
-	
-	public Set<RinspDoc> getListRinspDocs() {
-		return listRinspDocs;
-	}
-
-	public void setListRinspDocs(Set<RinspDoc> listRinspDocs) {
-		this.listRinspDocs = listRinspDocs;
-	}
-
-	@Override
-	public String toString() {
-		return "InspectorUser [usersId=" + usersId + ", date=" + date + ", enabled=" + enabled + ", lastname="
-				+ lastname + ", mail=" + mail + ", name=" + name + ", password=" + password + "]";
 	}
 	
 }

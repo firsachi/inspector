@@ -27,7 +27,7 @@ public class HomeService {
 			
 			@Override
 			public String getQuery() {
-				return "FROM RinspDoc r WHERE r.inspectorUser = :userId";
+				return "SELECT r FROM RinspDoc r WHERE r.inspector.usersId = :userId";
 			}
 		}, userId);
 		for (RinspDoc entity: rinspDocs ) {

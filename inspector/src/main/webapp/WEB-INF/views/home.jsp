@@ -32,8 +32,8 @@
 					<td>${task.street}</td>
 					<td>${task.district}</td>
 					<td>${task.usrNotes}</td>
-					<td>${task.created}</td>
-					<td></td>
+					<td>${task.createdDate}</td>
+					<td>${task.state}</td>
 					<td>${task.admNotes}</td>
 					<td><a href="home${task.id}"><spring:message code="table.view"/></a></td>
 				</tr>

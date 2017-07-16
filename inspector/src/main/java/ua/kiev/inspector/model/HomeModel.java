@@ -8,9 +8,9 @@ public class HomeModel {
 	private String street;
 	private String district;
 	private String usrNotes;
-	private Timestamp created;
+	private Timestamp createdDate;
 	private String admNotes;
-	private boolean state;
+	private String state;
 	
 	public HomeModel() {
 	}
@@ -47,12 +47,12 @@ public class HomeModel {
 		this.usrNotes = usrNotes;
 	}
 
-	public Timestamp getCreated() {
-		return created;
+	public Timestamp getCreatedDate() {
+		return createdDate;
 	}
 
-	public void setCreated(Timestamp created) {
-		this.created = created;
+	public void setCreatedDate(Timestamp createdDate) {
+		this.createdDate = createdDate;
 	}
 
 	public String getAdmNotes() {
@@ -63,14 +63,14 @@ public class HomeModel {
 		this.admNotes = admNotes;
 	}
 
-	public boolean isState() {
+	public String getState() {
 		return state;
 	}
 
-	public void setState(boolean state) {
+	public void setState(String state) {
 		this.state = state;
 	}
-	
+
 	
 
 }

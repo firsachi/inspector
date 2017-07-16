@@ -39,18 +39,6 @@ public class RinspDoc implements Serializable {
 	@Column(name="DATE_DOC")
 	private Timestamp dateDoc;
 
-	@Temporal(TemporalType.DATE)
-	@Column(name="DATE_END")
-	private Date dateEnd;
-
-	@Temporal(TemporalType.DATE)
-	@Column(name="DATE_STAN")
-	private Date dateStan;
-
-	@Temporal(TemporalType.DATE)
-	@Column(name="DATE_STATE")
-	private Date dateState;
-
 	//@Column(name="EXEC_ID")
 	private int execId;
 
@@ -71,12 +59,14 @@ public class RinspDoc implements Serializable {
 
 	@Lob
 	private String prim;
+	
+	@ManyToOne
+	@JoinColumn(name="REG_ID")
+	private InspectorRegion district;
 
-	@Column(name="REG_ID")
-	private int regId;
-
-	@Column(name="STAN_ID")
-	private int stanId;
+	@ManyToOne
+	@JoinColumn(name="STAN_ID")
+	private InspectorStatus statys;
 
 	@Column(name="STATE_ID")
 	private int stateId;
@@ -94,7 +84,7 @@ public class RinspDoc implements Serializable {
 	
 	@ManyToOne
 	@JoinColumn(name="US_ID")
-	private User inspectorUser;
+	private User inspector;
 	
 	@Column(name="X")
 	private String x;
@@ -106,7 +96,7 @@ public class RinspDoc implements Serializable {
 	}
 
 	public int getId() {
-		return this.id;
+		return id;
 	}
 
 	public void setId(int id) {
@@ -114,7 +104,7 @@ public class RinspDoc implements Serializable {
 	}
 
 	public String getAnswer() {
-		return this.answer;
+		return answer;
 	}
 
 	public void setAnswer(String answer) {
@@ -122,7 +112,7 @@ public class RinspDoc implements Serializable {
 	}
 
 	public Date getAnswerCheck() {
-		return this.answerCheck;
+		return answerCheck;
 	}
 
 	public void setAnswerCheck(Date answerCheck) {
@@ -130,7 +120,7 @@ public class RinspDoc implements Serializable {
 	}
 
 	public int getAnswerSeeinsp() {
-		return this.answerSeeinsp;
+		return answerSeeinsp;
 	}
 
 	public void setAnswerSeeinsp(int answerSeeinsp) {
@@ -138,7 +128,7 @@ public class RinspDoc implements Serializable {
 	}
 
 	public String getBuild() {
-		return this.build;
+		return build;
 	}
 
 	public void setBuild(String build) {
@@ -146,39 +136,15 @@ public class RinspDoc implements Serializable {
 	}
 
 	public Timestamp getDateDoc() {
-		return this.dateDoc;
+		return dateDoc;
 	}
 
 	public void setDateDoc(Timestamp dateDoc) {
 		this.dateDoc = dateDoc;
 	}
 
-	public Date getDateEnd() {
-		return this.dateEnd;
-	}
-
-	public void setDateEnd(Date dateEnd) {
-		this.dateEnd = dateEnd;
-	}
-
-	public Date getDateStan() {
-		return this.dateStan;
-	}
-
-	public void setDateStan(Date dateStan) {
-		this.dateStan = dateStan;
-	}
-
-	public Date getDateState() {
-		return this.dateState;
-	}
-
-	public void setDateState(Date dateState) {
-		this.dateState = dateState;
-	}
-
 	public int getExecId() {
-		return this.execId;
+		return execId;
 	}
 
 	public void setExecId(int execId) {
@@ -186,7 +152,7 @@ public class RinspDoc implements Serializable {
 	}
 
 	public String getFotop() {
-		return this.fotop;
+		return fotop;
 	}
 
 	public void setFotop(String fotop) {
@@ -194,7 +160,7 @@ public class RinspDoc implements Serializable {
 	}
 
 	public String getFotop2() {
-		return this.fotop2;
+		return fotop2;
 	}
 
 	public void setFotop2(String fotop2) {
@@ -202,7 +168,7 @@ public class RinspDoc implements Serializable {
 	}
 
 	public String getIp() {
-		return this.ip;
+		return ip;
 	}
 
 	public void setIp(String ip) {
@@ -210,23 +176,23 @@ public class RinspDoc implements Serializable {
 	}
 
 	public String getLocAdd() {
-		return this.locAdd;
+		return locAdd;
 	}
 
 	public void setLocAdd(String locAdd) {
 		this.locAdd = locAdd;
 	}
 
-	public String getNDoc() {
-		return this.nDoc;
+	public String getnDoc() {
+		return nDoc;
 	}
 
-	public void setNDoc(String nDoc) {
+	public void setnDoc(String nDoc) {
 		this.nDoc = nDoc;
 	}
 
 	public String getOpis() {
-		return this.opis;
+		return opis;
 	}
 
 	public void setOpis(String opis) {
@@ -234,31 +200,31 @@ public class RinspDoc implements Serializable {
 	}
 
 	public String getPrim() {
-		return this.prim;
+		return prim;
 	}
 
 	public void setPrim(String prim) {
 		this.prim = prim;
 	}
 
-	public int getRegId() {
-		return this.regId;
+	public InspectorRegion getDistrict() {
+		return district;
 	}
 
-	public void setRegId(int regId) {
-		this.regId = regId;
+	public void setDistrict(InspectorRegion district) {
+		this.district = district;
 	}
 
-	public int getStanId() {
-		return this.stanId;
+	public InspectorStatus getStatys() {
+		return statys;
 	}
 
-	public void setStanId(int stanId) {
-		this.stanId = stanId;
+	public void setStatys(InspectorStatus statys) {
+		this.statys = statys;
 	}
 
 	public int getStateId() {
-		return this.stateId;
+		return stateId;
 	}
 
 	public void setStateId(int stateId) {
@@ -266,7 +232,7 @@ public class RinspDoc implements Serializable {
 	}
 
 	public String getStreet() {
-		return this.street;
+		return street;
 	}
 
 	public void setStreet(String street) {
@@ -274,7 +240,7 @@ public class RinspDoc implements Serializable {
 	}
 
 	public String getTel() {
-		return this.tel;
+		return tel;
 	}
 
 	public void setTel(String tel) {
@@ -297,16 +263,16 @@ public class RinspDoc implements Serializable {
 		this.typeOp = typeOp;
 	}
 
-	public User getUsId() {
-		return this.inspectorUser;
+	public User getInspector() {
+		return inspector;
 	}
 
-	public void setUsId(User inspectorUser) {
-		this.inspectorUser = inspectorUser;
+	public void setInspector(User inspector) {
+		this.inspector = inspector;
 	}
 
 	public String getX() {
-		return this.x;
+		return x;
 	}
 
 	public void setX(String x) {
@@ -314,23 +280,12 @@ public class RinspDoc implements Serializable {
 	}
 
 	public String getY() {
-		return this.y;
+		return y;
 	}
 
 	public void setY(String y) {
 		this.y = y;
 	}
-
-	@Override
-	public String toString() {
-		return "RinspDoc [id=" + id + ", answer=" + answer + ", answerCheck=" + answerCheck + ", answerSeeinsp="
-				+ answerSeeinsp + ", build=" + build + ", dateDoc=" + dateDoc + ", dateEnd=" + dateEnd + ", dateStan="
-				+ dateStan + ", dateState=" + dateState + ", execId=" + execId + ", fotop=" + fotop + ", fotop2="
-				+ fotop2 + ", ip=" + ip + ", locAdd=" + locAdd + ", nDoc=" + nDoc + ", opis=" + opis + ", prim=" + prim
-				+ ", regId=" + regId + ", stanId=" + stanId + ", stateId=" + stateId + ", street=" + street + ", tel="
-				+ tel + ", inspectorTypeobject=" + inspectorTypeobject + ", typeOp=" + typeOp + ", inspectorUser="
-				+ inspectorUser + ", x=" + x + ", y=" + y + "]";
-	}
-
+	
 	
 }
