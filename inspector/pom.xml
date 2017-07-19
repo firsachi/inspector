@@ -8,7 +8,7 @@
 	<packaging>war</packaging>
 	<version>1.0.0-BUILD-SNAPSHOT</version>
 	<properties>
-		<java-version>1.6</java-version>
+		<java-version>1.8</java-version>
 		<!-- Spring version -->
 		<org.springframework-version>4.3.2.RELEASE</org.springframework-version>
 		<springframework.security-version>4.2.3.RELEASE</springframework.security-version>

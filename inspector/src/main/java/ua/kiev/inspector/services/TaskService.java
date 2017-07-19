@@ -49,15 +49,7 @@ public class TaskService implements BaseService<TaskModel>{
 
 	@Override
 	public TaskModel byId(int id) {
-		final int taskId = id;
-		RinspDoc rinspDoc = rinspDocDaoImpl.byEntity(new QueryHQL() {
-			
-			@Override
-			public String getQuery() {
-				return "SELECT r FROM RinspDoc r WHERE r.inspectorUser = " + userId + "AND r.id = " + taskId;
-			}
-		});
-		return taskTransformer.entityToModel(rinspDoc);
+		return taskTransformer.entityToModel(rinspDocDaoImpl.byEntity(id));
 	}
 
 	@Override
@@ -72,7 +64,7 @@ public class TaskService implements BaseService<TaskModel>{
 			
 			@Override
 			public String getQuery() {
-				return "SELECT r FROM RinspDoc r WHERE r.inspectorUser = " + userId;
+				return "SELECT r FROM RinspDoc r WHERE r.inspector = " + userId;
 			}
 		});
 		List<TaskModel> resultLIst = new ArrayList<TaskModel>();

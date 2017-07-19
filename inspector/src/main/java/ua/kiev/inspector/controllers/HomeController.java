@@ -10,14 +10,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import ua.kiev.inspector.model.TaskModel;
 import ua.kiev.inspector.model.UserModel;
+import ua.kiev.inspector.services.BaseService;
 import ua.kiev.inspector.services.HomeService;
+import ua.kiev.inspector.services.TaskService;
 
 @Controller
 public class HomeController {
 	
 	@Autowired
 	private HomeService homeService;
+	
+	@Autowired
+	private TaskService taskService;
 	
 	@RequestMapping(value = "/home", method = RequestMethod.GET)
 	public ModelAndView homePage(){
@@ -34,9 +40,9 @@ public class HomeController {
 	public String taskIdPage(@PathVariable("taskId") int id, Model model){
 		model.addAttribute("title", "task.title");
 		UserModel user = (UserModel)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-		// taskService.setUserEmail(user.getUserId());
+		taskService.setUserEmail(id);
 		model.addAttribute("user", user);
-		// model.addAttribute("task", taskService.byId(id));
+		model.addAttribute("task", taskService.byId(id));
 		return "view-task";
 	}
 

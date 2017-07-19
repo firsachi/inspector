@@ -45,7 +45,9 @@
   				
   				<div class="panel-body">
     				<div class="col-md-6">
-  						<div class="panel-body"><spring:message code="table.map"/></div>
+  						<div class="panel-body"><spring:message code="table.map"/>
+  							<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d17050.457879243794146!2d30.633689680027704!3d50.457879243794146!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sru!2sua!4v1500461923709" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+  						</div>
 					</div>
   					<div class="col-md-6">
   						<div class="panel-body"><spring:message code="table.photo"/></div>
