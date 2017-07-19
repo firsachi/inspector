@@ -17,7 +17,7 @@
 		
 		<!-- Hibernate / JPA -->
 		<hibernate.version>5.2.10.Final</hibernate.version>
-		<postgresql.version>9.4-1201-jdbc41</postgresql.version>
+		<mysql.version>5.1.6</mysql.version>
 		<c3p0.version>0.9.1.2</c3p0.version>
 		
 		<!-- Logging version -->
@@ -101,10 +101,11 @@
     		<version>${hibernate-validator.version}</version>
 		</dependency>
 		
+		<!-- mysql JDBC -->
 		<dependency>
-    		<groupId>org.postgresql</groupId>
-    		<artifactId>postgresql</artifactId>
-    		<version>${postgresql.version}</version>
+    		<groupId>mysql</groupId>
+    		<artifactId>mysql-connector-java</artifactId>
+    		<version>${mysql.version}</version>
 		</dependency>
 		
 		<!-- C3P0 connection pool -->
