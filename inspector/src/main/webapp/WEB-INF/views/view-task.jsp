@@ -26,7 +26,7 @@
   						<td>${ user.getFullUserName() }</td>
   					</tr>
   					<tr>
-  						<th><spring:message code="table.area"/></th>
+  						<th><spring:message code="table.district"/></th>
   						<td></td>
   					</tr>
   					<tr>

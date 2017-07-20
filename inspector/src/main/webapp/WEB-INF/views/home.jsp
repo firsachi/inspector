@@ -19,7 +19,7 @@
 			<tr>
 				<th><spring:message code="table.number"/></th>
 				<th><spring:message code="table.street"/></th>
-				<th><spring:message code="table.area"/></th>
+				<th><spring:message code="table.district"/></th>
 				<th><spring:message code="table.notes"/></th>
 				<th><spring:message code="table.data"/></th>
 				<th><spring:message code="table.statys"/></th>
