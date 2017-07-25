@@ -23,7 +23,7 @@
         		<c:set var="login">
         			<spring:message code="login.username"/>
         		</c:set>
-        		<form:label path="username">${ login }</form:label>
+        		<form:label path="username"><span class="glyphicon glyphicon-envelope"></span> ${ login }</form:label>
         		<form:input path="username" cssClass="form-control" placeholder="${ login }"/>
         		<form:errors path="username" cssClass="text-danger"/>
         		<c:set var="pass">
@@ -34,6 +34,7 @@
         		<form:errors path="password" cssClass="text-danger"/>
         		
         		<form:button class="btn btn-lg btn-primary btn-block">
+        			<span class="glyphicon glyphicon-log-in"></span>
         			<spring:message code="login.dingin"/>
         		</form:button>
         		<a href="." class="btn btn-default btn-lg btn-block"><spring:message code="login.back"/></a>

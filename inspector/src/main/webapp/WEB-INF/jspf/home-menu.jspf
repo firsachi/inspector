@@ -17,7 +17,7 @@
 				<ul class="nav navbar-nav navbar-right">
 					<li><a href="NewObject"><spring:message code="label.newObject"/></a></li>
         			<li><a href="user-profile"><spring:message code="label.userProfile"/></a></li>
-        			<li><a href="<c:url value="/logout" />"><spring:message code="label.logoff"/></a></li>
+        			<li><a href="<c:url value="/logout" />"><span class="glyphicon glyphicon-log-out"></span><spring:message code="label.logoff"/></a></li>
       			</ul>
 				</div><!-- /.navbar-collapse -->
 			</div><!-- /.navbar-collapse -->

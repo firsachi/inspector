@@ -14,31 +14,34 @@
 	<body>
 		<%@ include file="../jspf/home-menu.jspf" %>
 		<div class="container-fluid">
-		<h1><spring:message code="table.homeName"/></h1>
-		<table class="table">
-			<tr>
-				<th><spring:message code="table.number"/></th>
-				<th><spring:message code="table.street"/></th>
-				<th><spring:message code="table.district"/></th>
-				<th><spring:message code="table.notes"/></th>
-				<th><spring:message code="table.data"/></th>
-				<th><spring:message code="table.statys"/></th>
-				<th><spring:message code="table.resultCheck"/></th>
-				<th><spring:message code="table.operation"/></th>
-			<tr>
-			<c:forEach var="task" items="${tasks}">
+			<h1><spring:message code="table.homeName"/></h1>
+		
+			<div class="table-responsive">
+			<table class="table">
+				<tr>
+					<th><spring:message code="table.number"/></th>
+					<th><spring:message code="table.street"/></th>
+					<th><spring:message code="table.district"/></th>
+					<th><spring:message code="table.notes"/></th>
+					<th><spring:message code="table.data"/></th>
+					<th><spring:message code="table.statys"/></th>
+					<th><spring:message code="table.resultCheck"/></th>
+					<th><spring:message code="table.operation"/></th>
+				<tr>
+				<c:forEach var="task" items="${tasks}">
 				<tr>
 					<td>${task.id}</td>
 					<td>${task.street}</td>
-					<td>${task.district}</td>
-					<td>${task.usrNotes}</td>
-					<td>${task.createdDate}</td>
-					<td>${task.state}</td>
-					<td>${task.admNotes}</td>
+					<td>${task.district.name}</td>
+					<td>${task.opis}</td>
+					<td>${task.dateDoc}</td>
+					<td>${task.statys.name}</td>
+					<td>${task.answer}</td>
 					<td><a href="home${task.id}"><spring:message code="table.view"/></a></td>
 				</tr>
 			</c:forEach>
-		</table>
+			</table>
+			</div>
 		</div>
 		<%@ include file="../jspf/map-base-file-js.jspf" %>
 	</body>

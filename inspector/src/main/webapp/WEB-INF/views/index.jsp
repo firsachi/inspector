@@ -42,6 +42,7 @@
       		<ul class="nav navbar-nav navbar-right">
         		<li class="dropdown">
           			<button type="button" class="btn btn-primary navbar-btn" onclick="self.location.href='./home'">
+          				<span class="glyphicon glyphicon-log-in"></span>
           				<spring:message code="login.dingin"/>
           			</button>
         		</li>
