@@ -15,6 +15,7 @@
     			
     			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav navbar-right">
+					<li><a href="NewObject"><spring:message code="label.newObject"/></a></li>
         			<li><a href="user-profile"><spring:message code="label.userProfile"/></a></li>
         			<li><a href="<c:url value="/logout" />"><spring:message code="label.logoff"/></a></li>
       			</ul>
