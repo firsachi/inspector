@@ -15,9 +15,22 @@
 	
 	<body>
 		<%@ include file="../jspf/home-menu.jspf" %>
-  				<form:form modelAttribute="newObject" cssClass="form-horizontal">
-  					<%@ include file="../jspf/form-object.jspf" %>
-  				</form:form>
+		<div class="container">
+			<form:form modelAttribute="newObject" cssClass="form-horizontal">
+  				<%@ include file="../jspf/form-object.jspf" %>
+  				<div class="form-group">
+  					<div class="col-sm-offset-2 col-sm-10">
+  						<form:button class="btn btn-default">
+  							<spring:message code="button.buttonSubmit"/>
+  						</form:button>
+  						<a href="home" class="btn btn-default">
+  							<spring:message code="button.buttonBack"/>
+  						</a>
+  					</div>
+  				</div>
+  			</form:form>
+		</div>
+  				
 		<%@ include file="../jspf/map-base-file-js.jspf" %>
 	</body>
 </html>
