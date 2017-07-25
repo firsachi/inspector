@@ -6,7 +6,7 @@
 <html>
 
 	<c:set var="titlePage">
-		<spring:message code="${title}"/> ${ task.idNumber }
+		<spring:message code="${title}"/> ${ task.id }
 	</c:set>
 	
 	<head>
@@ -39,7 +39,7 @@
   					</tr>
   					<tr>
   						<th><spring:message code="table.notes"/></th>
-  						<td>${ task.summary }</td>
+  						<td>${ task.opis }</td>
   					</tr>
   				</table>
   				

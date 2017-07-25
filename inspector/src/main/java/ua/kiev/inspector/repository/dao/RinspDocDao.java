@@ -6,6 +6,7 @@ import ua.kiev.inspector.repository.entity.RinspDoc;
 
 public interface RinspDocDao {
 	
-	public List<RinspDoc> getAllRisoDoc(QueryHQL query, int inspectorUser);
-
+	public List<RinspDoc> getAllRisoDoc(int inspectorUserId);
+	RinspDoc getByRispDoc(int id, int userId);
+	
 }
