@@ -1,10 +1,6 @@
 package ua.kiev.inspector.controllers;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-
-import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -55,6 +51,7 @@ public class NewObjectController {
 	public List<InspectorRegion> listRegion(){
 		return inspectorRegionDaoImpl.getAll();
 	}
+	
 	@ModelAttribute(name = "typeObjects")
 	public List<InspectorTypeobject> gerListTypeObgects(){
 		return typeObjectDaoImpl.getAll();
