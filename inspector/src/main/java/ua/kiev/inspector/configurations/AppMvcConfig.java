@@ -28,14 +28,13 @@ public class AppMvcConfig extends WebMvcConfigurerAdapter{
         registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
     }
 	
-	 @Bean
-	    public UrlBasedViewResolver setupViewResolver() {
-	        UrlBasedViewResolver resolver = new UrlBasedViewResolver();
-	        resolver.setPrefix("/WEB-INF/views/");
-	        resolver.setSuffix(".jsp");
-	        resolver.setViewClass(JstlView.class);
-	 
-	        return resolver;
+	@Bean
+	public UrlBasedViewResolver setupViewResolver() {
+		UrlBasedViewResolver resolver = new UrlBasedViewResolver();
+	    resolver.setPrefix("/WEB-INF/views/");
+	    resolver.setSuffix(".jsp");
+	    resolver.setViewClass(JstlView.class);
+	    return resolver;
 	    }
 	
 	@Bean
@@ -62,8 +61,8 @@ public class AppMvcConfig extends WebMvcConfigurerAdapter{
         return interceptor;
     }
 	
-	 @Override
-	    public void addInterceptors(InterceptorRegistry registry) {
-	        registry.addInterceptor(localeInterceptor());
-	    }
+	@Override
+	public void addInterceptors(InterceptorRegistry registry) {
+		registry.addInterceptor(localeInterceptor());
+	}
 }

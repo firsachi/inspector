@@ -6,7 +6,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 
-	
 	<head>
 		<%@include file="../jspf/map-meta-tegs.jspf" %>
     	<%@include file="../jspf/map-bootstrap-css.jspf" %>
@@ -16,7 +15,11 @@
 	<body>
 		<%@ include file="../jspf/home-menu.jspf" %>
 		<div class="container">
-			<form:form modelAttribute="newObject" cssClass="form-horizontal">
+			<form:form modelAttribute="newObject" 
+						cssClass="form-horizontal" 
+						method="post" 
+						action="NewObject/save"  
+						acceptCharset="UTF-8">
   				<%@ include file="../jspf/form-object.jspf" %>
   				<div class="form-group">
   					<div class="col-sm-offset-2 col-sm-10">

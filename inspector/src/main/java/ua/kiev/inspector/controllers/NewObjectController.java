@@ -17,12 +17,17 @@ import org.springframework.web.servlet.ModelAndView;
 import ua.kiev.inspector.model.TaskModel;
 import ua.kiev.inspector.model.UserModel;
 import ua.kiev.inspector.repository.dao.InspectorRegionDao;
+import ua.kiev.inspector.repository.dao.TypeObjectDao;
 import ua.kiev.inspector.repository.entity.InspectorRegion;
+import ua.kiev.inspector.repository.entity.InspectorTypeobject;
 import ua.kiev.inspector.services.TaskService;
 
 @RequestMapping(value = "/NewObject")
 @Controller
 public class NewObjectController {
+	
+	@Autowired
+	private TypeObjectDao typeObjectDaoImpl;
 	
 	@Autowired
 	private InspectorRegionDao inspectorRegionDaoImpl;
@@ -40,13 +45,18 @@ public class NewObjectController {
 		return model;
 	}
 	
-	@RequestMapping(value = "save")
-	public String submit(){
-		return "";
+	@RequestMapping(value = "save", method = RequestMethod.POST)
+	public String submit(@ModelAttribute("newObject") TaskModel taskModel){
+		
+		return "redirect:../home";
 	}
 	
 	@ModelAttribute(name = "districts")
 	public List<InspectorRegion> listRegion(){
 		return inspectorRegionDaoImpl.getAll();
+	}
+	@ModelAttribute(name = "typeObjects")
+	public List<InspectorTypeobject> gerListTypeObgects(){
+		return typeObjectDaoImpl.getAll();
 	}
 }
